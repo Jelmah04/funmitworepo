@@ -1,0 +1,35 @@
+
+{% extends "shared/base.html" %}
+{% load static %}
+
+
+{% block title %}
+  Add To Users
+{% endblock title %}
+
+
+{% block mainmain %}
+<style>
+  #main, .dashboard, .sidebarr{
+    display: none;
+  }
+</style>
+  
+{% endblock mainmain %}
+
+
+
+{% block main %}
+  <section>
+  <center>
+      <h4>Add Balance To Users</h4>
+      <br><br>
+        <form action="{% url 'dashboard' %}" method="POST" id="atuform">
+          {% csrf_token %}
+          <input placeholder="{{request.user.email}}" type="email" name="atuemail" id="atuemail"><br><br>
+          <input placeholder="Input amount" type="number" name="atuamount" id="atuamount"><br><br>
+          <input type="submit" value="Submit" id="atusubmit">   <br><br>   
+        </form>
+  </center>
+  </section>
+{% endblock main %}
